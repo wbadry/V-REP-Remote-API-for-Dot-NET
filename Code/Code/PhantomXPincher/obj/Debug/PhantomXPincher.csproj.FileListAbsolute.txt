@@ -53,3 +53,6 @@ C:\Users\Waleed El-Badry\Desktop\PhantomX Pincher\Code\PhantomXPincher\obj\Debug
 C:\Users\Waleed El-Badry\Desktop\PhantomX Pincher\Code\PhantomXPincher\obj\Debug\PhantomXPincher.pdb
 C:\Users\Waleed El-Badry\Desktop\PhantomX Pincher\Code\PhantomXPincher\bin\Debug\CoppeliaRobotics.dll
 C:\Users\Waleed El-Badry\Desktop\PhantomX Pincher\Code\PhantomXPincher\bin\Debug\CoppeliaRobotics.pdb
+E:\GitHub\V-REP-Remote-API-in-C-\V-REP-Remote-API-for-Dot-NET\Code\Code\PhantomXPincher\bin\Debug\PhantomXPincher.exe.config
+E:\GitHub\V-REP-Remote-API-in-C-\V-REP-Remote-API-for-Dot-NET\Code\Code\PhantomXPincher\obj\Debug\PhantomXPincher.exe
+E:\GitHub\V-REP-Remote-API-in-C-\V-REP-Remote-API-for-Dot-NET\Code\Code\PhantomXPincher\obj\Debug\PhantomXPincher.pdb
