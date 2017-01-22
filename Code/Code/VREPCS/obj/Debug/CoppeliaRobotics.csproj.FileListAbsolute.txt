@@ -5,3 +5,10 @@ C:\Users\Waleed El-Badry\Desktop\PhantomX Pincher\Code\VREPCS\bin\Debug\JetBrain
 C:\Users\Waleed El-Badry\Desktop\PhantomX Pincher\Code\VREPCS\obj\Debug\CoppeliaRobotics.dll
 C:\Users\Waleed El-Badry\Desktop\PhantomX Pincher\Code\VREPCS\obj\Debug\CoppeliaRobotics.pdb
 C:\Users\Waleed El-Badry\Desktop\PhantomX Pincher\Code\VREPCS\obj\Debug\CoppeliaRobotics.csprojResolveAssemblyReference.cache
+E:\GitHub\V-REP-Remote-API-in-C-\V-REP-Remote-API-for-Dot-NET\Code\Code\VREPCS\bin\Debug\CoppeliaRobotics.dll
+E:\GitHub\V-REP-Remote-API-in-C-\V-REP-Remote-API-for-Dot-NET\Code\Code\VREPCS\bin\Debug\CoppeliaRobotics.pdb
+E:\GitHub\V-REP-Remote-API-in-C-\V-REP-Remote-API-for-Dot-NET\Code\Code\VREPCS\bin\Debug\JetBrains.Annotations.dll
+E:\GitHub\V-REP-Remote-API-in-C-\V-REP-Remote-API-for-Dot-NET\Code\Code\VREPCS\bin\Debug\JetBrains.Annotations.xml
+E:\GitHub\V-REP-Remote-API-in-C-\V-REP-Remote-API-for-Dot-NET\Code\Code\VREPCS\obj\Debug\CoppeliaRobotics.csprojResolveAssemblyReference.cache
+E:\GitHub\V-REP-Remote-API-in-C-\V-REP-Remote-API-for-Dot-NET\Code\Code\VREPCS\obj\Debug\CoppeliaRobotics.dll
+E:\GitHub\V-REP-Remote-API-in-C-\V-REP-Remote-API-for-Dot-NET\Code\Code\VREPCS\obj\Debug\CoppeliaRobotics.pdb

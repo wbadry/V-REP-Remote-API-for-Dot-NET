@@ -6,3 +6,11 @@ C:\Users\Waleed El-Badry\Desktop\PhantomX Pincher\Code\Generate Method List\obj\
 C:\Users\Waleed El-Badry\Desktop\PhantomX Pincher\Code\Generate Method List\bin\Debug\CoppeliaRobotics.dll
 C:\Users\Waleed El-Badry\Desktop\PhantomX Pincher\Code\Generate Method List\bin\Debug\CoppeliaRobotics.pdb
 C:\Users\Waleed El-Badry\Desktop\PhantomX Pincher\Code\Generate Method List\obj\Debug\Generate Method List.csprojResolveAssemblyReference.cache
+E:\GitHub\V-REP-Remote-API-in-C-\V-REP-Remote-API-for-Dot-NET\Code\Code\Generate Method List\bin\Debug\Generate Method List.exe.config
+E:\GitHub\V-REP-Remote-API-in-C-\V-REP-Remote-API-for-Dot-NET\Code\Code\Generate Method List\bin\Debug\Generate Method List.exe
+E:\GitHub\V-REP-Remote-API-in-C-\V-REP-Remote-API-for-Dot-NET\Code\Code\Generate Method List\bin\Debug\Generate Method List.pdb
+E:\GitHub\V-REP-Remote-API-in-C-\V-REP-Remote-API-for-Dot-NET\Code\Code\Generate Method List\bin\Debug\CoppeliaRobotics.dll
+E:\GitHub\V-REP-Remote-API-in-C-\V-REP-Remote-API-for-Dot-NET\Code\Code\Generate Method List\bin\Debug\CoppeliaRobotics.pdb
+E:\GitHub\V-REP-Remote-API-in-C-\V-REP-Remote-API-for-Dot-NET\Code\Code\Generate Method List\obj\Debug\Generate Method List.csprojResolveAssemblyReference.cache
+E:\GitHub\V-REP-Remote-API-in-C-\V-REP-Remote-API-for-Dot-NET\Code\Code\Generate Method List\obj\Debug\Generate Method List.exe
+E:\GitHub\V-REP-Remote-API-in-C-\V-REP-Remote-API-for-Dot-NET\Code\Code\Generate Method List\obj\Debug\Generate Method List.pdb
