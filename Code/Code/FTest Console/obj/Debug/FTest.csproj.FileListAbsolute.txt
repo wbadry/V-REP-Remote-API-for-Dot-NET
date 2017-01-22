@@ -1,0 +1,8 @@
+C:\Users\Waleed El-Badry\Desktop\PhantomX Pincher\Code\FTest\bin\Debug\FTest.exe.config
+C:\Users\Waleed El-Badry\Desktop\PhantomX Pincher\Code\FTest\bin\Debug\FTest.exe
+C:\Users\Waleed El-Badry\Desktop\PhantomX Pincher\Code\FTest\bin\Debug\FTest.pdb
+C:\Users\Waleed El-Badry\Desktop\PhantomX Pincher\Code\FTest\bin\Debug\CoppeliaRobotics.dll
+C:\Users\Waleed El-Badry\Desktop\PhantomX Pincher\Code\FTest\bin\Debug\CoppeliaRobotics.pdb
+C:\Users\Waleed El-Badry\Desktop\PhantomX Pincher\Code\FTest\obj\Debug\FTest.csprojResolveAssemblyReference.cache
+C:\Users\Waleed El-Badry\Desktop\PhantomX Pincher\Code\FTest\obj\Debug\FTest.exe
+C:\Users\Waleed El-Badry\Desktop\PhantomX Pincher\Code\FTest\obj\Debug\FTest.pdb

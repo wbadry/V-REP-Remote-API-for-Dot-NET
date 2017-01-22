@@ -1,0 +1,7 @@
+C:\Users\Waleed El-Badry\Desktop\PhantomX Pincher\Code\VREPCS\bin\Debug\CoppeliaRobotics.dll
+C:\Users\Waleed El-Badry\Desktop\PhantomX Pincher\Code\VREPCS\bin\Debug\CoppeliaRobotics.pdb
+C:\Users\Waleed El-Badry\Desktop\PhantomX Pincher\Code\VREPCS\bin\Debug\JetBrains.Annotations.dll
+C:\Users\Waleed El-Badry\Desktop\PhantomX Pincher\Code\VREPCS\bin\Debug\JetBrains.Annotations.xml
+C:\Users\Waleed El-Badry\Desktop\PhantomX Pincher\Code\VREPCS\obj\Debug\CoppeliaRobotics.dll
+C:\Users\Waleed El-Badry\Desktop\PhantomX Pincher\Code\VREPCS\obj\Debug\CoppeliaRobotics.pdb
+C:\Users\Waleed El-Badry\Desktop\PhantomX Pincher\Code\VREPCS\obj\Debug\CoppeliaRobotics.csprojResolveAssemblyReference.cache

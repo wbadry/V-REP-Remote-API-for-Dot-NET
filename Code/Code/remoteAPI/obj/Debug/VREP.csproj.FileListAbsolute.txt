@@ -1,0 +1,5 @@
+C:\Users\Waleed El-Badry\Desktop\PhantomX Pincher\Code\remoteAPI\bin\Debug\VREP.dll
+C:\Users\Waleed El-Badry\Desktop\PhantomX Pincher\Code\remoteAPI\bin\Debug\VREP.pdb
+C:\Users\Waleed El-Badry\Desktop\PhantomX Pincher\Code\remoteAPI\obj\Debug\VREP.dll
+C:\Users\Waleed El-Badry\Desktop\PhantomX Pincher\Code\remoteAPI\obj\Debug\VREP.pdb
+C:\Users\Waleed El-Badry\Desktop\PhantomX Pincher\Code\remoteAPI\obj\Debug\VREP.csprojResolveAssemblyReference.cache

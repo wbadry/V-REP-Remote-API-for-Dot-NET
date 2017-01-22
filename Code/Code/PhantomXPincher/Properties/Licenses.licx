@@ -1,0 +1,9 @@
+DevExpress.Patch.InMemoryPatch, DevExpress.Patch.Common, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7fc7bfca2443de66
+DevExpress.Xpf.LayoutControl.LayoutControl, DevExpress.Xpf.LayoutControl.v16.2, Version=16.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a
+DevExpress.Xpf.LayoutControl.LayoutGroup, DevExpress.Xpf.LayoutControl.v16.2, Version=16.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a
+DevExpress.Xpf.LayoutControl.DataLayoutControl, DevExpress.Xpf.LayoutControl.v16.2, Version=16.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a
+DevExpress.Xpf.LayoutControl.LayoutItem, DevExpress.Xpf.LayoutControl.v16.2, Version=16.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a
+DevExpress.Xpf.Editors.TrackBarEdit, DevExpress.Xpf.Core.v16.2, Version=16.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a
+DevExpress.Xpf.Gauges.StateIndicatorControl, DevExpress.Xpf.Gauges.v16.2, Version=16.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a
+DevExpress.Xpf.Gauges.CircularGaugeControl, DevExpress.Xpf.Gauges.v16.2, Version=16.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a
+DevExpress.Xpf.Editors.ImageEdit, DevExpress.Xpf.Core.v16.2, Version=16.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a
