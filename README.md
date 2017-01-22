@@ -57,4 +57,6 @@ SimGetIntegerSignalEnd **(Managed)**
 SimGetIntegerSignal **(Managed)**
 
 simxGetStringSignal
+
+Library was created using **.NET framework 4.5**.
  
