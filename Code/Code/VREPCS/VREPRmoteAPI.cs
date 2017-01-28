@@ -23,7 +23,7 @@ namespace CoppeliaRobotics
         /// <param name="operationMode"> a remote API function operation mode. Recommended operation mode for this function is simx_opmode_oneshot</param>
         /// <returns></returns>
         [DllImport("remoteApi.dll", CallingConvention = CallingConvention.Cdecl)]
-        private static extern void simxAddStatusbarMessage(int clientId,string message,SimxOpmode operationMode);
+        private static extern void simxAddStatusbarMessage(int clientId,string message,RegularOperationMode operationMode);
 
         /// <summary>
         /// (Managed) Adds a message to the status bar.
@@ -33,7 +33,7 @@ namespace CoppeliaRobotics
         public static void SimAddStatusbarMessage(int clientId, [NotNull] string message)
         {
             if (message == null) throw new ArgumentNullException(nameof(message));
-            simxAddStatusbarMessage(clientId,  message, SimxOpmode.Oneshot);
+            simxAddStatusbarMessage(clientId,  message, RegularOperationMode.SimxOpmodeOneshot);
         }
 
         /// <summary>
@@ -76,7 +76,7 @@ namespace CoppeliaRobotics
         /// <param name="operationMode">a remote API function operation mode. Recommended operation mode for this function is simx_opmode_blocking</param>
         /// <returns></returns>
         [DllImport("remoteApi.dll", CallingConvention = CallingConvention.Cdecl)]
-        private static extern SimxError simxGetObjectHandle(int clientId, string objectName, out int handle, SimxOpmode operationMode);
+        private static extern CommandReturnCodes simxGetObjectHandle(int clientId, string objectName, out int handle, RegularOperationMode operationMode);
 
         /// <summary>
         /// (Managed) Retrieves an object handle based on its name. If the client application is launched from a child script, then you could also let the child script figure out what handle correspond to what objects, and send the handles as additional arguments to the client application during its launch. See also simxGetObjectGroupData.
@@ -87,7 +87,7 @@ namespace CoppeliaRobotics
         public static int SimGetObjectHandle(int clientId, string objectName)
         {
             int handle;
-            simxGetObjectHandle(clientId, objectName, out handle, SimxOpmode.OneshotWait);
+            simxGetObjectHandle(clientId, objectName, out handle, RegularOperationMode.SimxOpmodeOneshotWait);
             return handle;
         }
 
@@ -100,7 +100,7 @@ namespace CoppeliaRobotics
         /// <param name="operationMode"> a remote API function operation mode. Recommended operation modes for this function are simx_opmode_oneshot or simx_opmode_streaming</param>
         /// <returns></returns>
         [DllImport("remoteApi.dll", CallingConvention = CallingConvention.Cdecl)]
-        private static extern SimxError simxSetJointTargetPosition(int clientId, int jointHandle, float targetPosition, SimxOpmode operationMode);
+        private static extern CommandReturnCodes simxSetJointTargetPosition(int clientId, int jointHandle, float targetPosition, RegularOperationMode operationMode);
 
         /// <summary>
         /// (Managed) Sets the target position of a joint if the joint is in torque/force mode (also make sure that the joint's motor and position control are enabled). See also simxSetJointPosition.
@@ -109,10 +109,10 @@ namespace CoppeliaRobotics
         /// <param name="jointHandle">handle of the joint</param>
         /// <param name="targetPosition"> target position of the joint (angular (radian) or linear value depending on the joint type)</param>
         /// <returns></returns>
-        public static SimxError SimSetJointTargetPosition(int clientId, int jointHandle, float targetPosition)
+        public static CommandReturnCodes SimSetJointTargetPosition(int clientId, int jointHandle, float targetPosition)
         {
             //Call function with non-blocking fashion
-            SimxError x = simxSetJointTargetPosition(clientId, jointHandle, targetPosition, SimxOpmode.Oneshot);
+            CommandReturnCodes x = simxSetJointTargetPosition(clientId, jointHandle, targetPosition, RegularOperationMode.SimxOpmodeOneshot);
             return x;
         }
 
@@ -125,7 +125,7 @@ namespace CoppeliaRobotics
         /// <param name="operationMode">a remote API function operation mode. Recommended operation modes for this function are simx_opmode_streaming (the first call) and simx_opmode_buffer (the following calls)</param>
         /// <returns>a remote API function return code</returns>
         [DllImport("remoteApi.dll", CallingConvention = CallingConvention.Cdecl)]
-        private static extern SimxError simxGetJointPosition(int clientId, int jointHandle, ref float targetPosition, SimxOpmode operationMode);
+        private static extern CommandReturnCodes simxGetJointPosition(int clientId, int jointHandle, ref float targetPosition, RegularOperationMode operationMode);
 
         /// <summary>
         /// (Managed) This method is called to start streaming of joint position (called once)
@@ -135,7 +135,7 @@ namespace CoppeliaRobotics
         public static void SimGetJointPositionInit(int clientId, int jointHandle)
         {
             float pos = 0;
-            simxGetJointPosition(clientId, jointHandle, ref pos, SimxOpmode.Streaming);
+            simxGetJointPosition(clientId, jointHandle, ref pos, RegularOperationMode.SimxOpmodeStreaming);
         }
 
         /// <summary>
@@ -146,7 +146,7 @@ namespace CoppeliaRobotics
         public static void SimGetJointPositionEnd(int clientId, int jointHandle)
         {
             float pos = 0;
-            simxGetJointPosition(clientId, jointHandle, ref pos, SimxOpmode.Discontinue);
+            simxGetJointPosition(clientId, jointHandle, ref pos, RegularOperationMode.SimxOpmodeDiscontinue);
         }
 
         /// <summary>
@@ -158,7 +158,7 @@ namespace CoppeliaRobotics
         public static float SimGetJointPositionRadian(int clientId, int jointHandle)
         {
             float pos = 0;
-            simxGetJointPosition(clientId, jointHandle, ref pos, SimxOpmode.Buffer);
+            simxGetJointPosition(clientId, jointHandle, ref pos, RegularOperationMode.SimxOpmodeBuffer);
             return pos;
         }
 
@@ -171,7 +171,7 @@ namespace CoppeliaRobotics
         public static float SimGetJointPositionDegrees(int clientId, int jointHandle)
         {
             float pos = 0;
-            simxGetJointPosition(clientId, jointHandle, ref pos, SimxOpmode.Buffer);
+            simxGetJointPosition(clientId, jointHandle, ref pos, RegularOperationMode.SimxOpmodeBuffer);
             return (float)Math.Round(pos * (180.0 / Math.PI),2) ;
         }
 
@@ -184,7 +184,7 @@ namespace CoppeliaRobotics
         /// <param name="operationMode"> remote API function operation mode. Recommended operation modes for this function are simx_opmode_oneshot or simx_opmode_streaming</param>
         /// <returns>a remote API function return code</returns>
         [DllImport("remoteApi.dll", CallingConvention = CallingConvention.Cdecl)]
-        private static extern SimxError simxSetJointTargetVelocity(int clientId, int jointHandle, float velocity, SimxOpmode operationMode);
+        private static extern CommandReturnCodes simxSetJointTargetVelocity(int clientId, int jointHandle, float velocity, RegularOperationMode operationMode);
 
         /// <summary>
         /// Sets the intrinsic target velocity of a non-spherical joint. This command makes only sense when the joint mode is in torque/force mode: the dynamics functionality and the joint motor have to be enabled (position control should however be disabled)
@@ -195,7 +195,7 @@ namespace CoppeliaRobotics
         /// <returns></returns>
         public static void SimSetJointTargetVelocity(int clientId, int jointHandle, float velocity)
         {
-            simxSetJointTargetVelocity(clientId,jointHandle,velocity, SimxOpmode.Oneshot);
+            simxSetJointTargetVelocity(clientId,jointHandle,velocity, RegularOperationMode.SimxOpmodeOneshot);
         }
 
         /// <summary>
@@ -207,7 +207,7 @@ namespace CoppeliaRobotics
         /// <param name="operationMode">a remote API function operation mode. Recommended operation modes for this function are simx_opmode_streaming (the first call) and simx_opmode_buffer (the following calls)</param>
         /// <returns> remote API function return code</returns>
         [DllImport("remoteApi.dll", CallingConvention = CallingConvention.Cdecl)]
-        private static extern SimxError simxGetFloatSignal(int clientId, string signalName, ref float signalValue, SimxOpmode operationMode);
+        private static extern CommandReturnCodes simxGetFloatSignal(int clientId, string signalName, ref float signalValue, RegularOperationMode operationMode);
 
         /// <summary>
         /// (Managed) Start streaming of float signal value (called once)
@@ -218,7 +218,7 @@ namespace CoppeliaRobotics
         public static float SimGetFloatSignalInit(int clientId, string signalName)
         {
             float val = 0;
-            simxGetFloatSignal(clientId, signalName, ref val, SimxOpmode.Streaming);
+            simxGetFloatSignal(clientId, signalName, ref val, RegularOperationMode.SimxOpmodeStreaming);
             return val;
         }
 
@@ -228,10 +228,10 @@ namespace CoppeliaRobotics
         /// <param name="clientId">the client ID. refer to simxStart.</param>
         /// <param name="signalName">name of the signal</param>
         /// <returns>the value of the signal</returns>
-        public static SimxError SimGetFloatSignalEnd(int clientId, string signalName)
+        public static CommandReturnCodes SimGetFloatSignalEnd(int clientId, string signalName)
         {
             float val = 0;
-            var e = simxGetFloatSignal(clientId, signalName, ref val, SimxOpmode.Discontinue);
+            var e = simxGetFloatSignal(clientId, signalName, ref val, RegularOperationMode.SimxOpmodeDiscontinue);
             return e;
         }
 
@@ -241,10 +241,10 @@ namespace CoppeliaRobotics
         /// <param name="clientId">the client ID. refer to simxStart.</param>
         /// <param name="signalName">name of the signal</param>
         /// <returns>the value of the signal</returns>
-        public static SimxError SimGetFloatSignal(int clientId, string signalName)
+        public static CommandReturnCodes SimGetFloatSignal(int clientId, string signalName)
         {
             float val = 0;
-            var e = simxGetFloatSignal(clientId, signalName, ref val, SimxOpmode.Streaming);
+            var e = simxGetFloatSignal(clientId, signalName, ref val, RegularOperationMode.SimxOpmodeStreaming);
             return e;
         }
 
@@ -257,7 +257,7 @@ namespace CoppeliaRobotics
         /// <param name="operationMode"> a remote API function operation mode. Recommended operation modes for this function are simx_opmode_streaming (the first call) and simx_opmode_buffer (the following calls)</param>
         /// <returns>a remote API function return code</returns>
         [DllImport("remoteApi.dll", CallingConvention = CallingConvention.Cdecl)]
-        private static extern SimxError simxGetIntegerSignal(int clientId, string signalName, ref int signalValue, SimxOpmode operationMode);
+        private static extern CommandReturnCodes simxGetIntegerSignal(int clientId, string signalName, ref int signalValue, RegularOperationMode operationMode);
 
         /// <summary>
         /// (Managed) Start streaming of integer signal value (called once)
@@ -265,10 +265,10 @@ namespace CoppeliaRobotics
         /// <param name="clientId">the client ID. refer to simxStart.</param>
         /// <param name="signalName">name of the signal</param>
         /// <returns>Error code</returns>
-        public static SimxError SimGetIntegerSignalInit(int clientId, string signalName)
+        public static CommandReturnCodes SimGetIntegerSignalInit(int clientId, string signalName)
         {
             int val = 0;
-            var e = simxGetIntegerSignal(clientId, signalName, ref val, SimxOpmode.Streaming);
+            var e = simxGetIntegerSignal(clientId, signalName, ref val, RegularOperationMode.SimxOpmodeStreaming);
             return e;
         }
 
@@ -278,10 +278,10 @@ namespace CoppeliaRobotics
         /// <param name="clientId">the client ID. refer to simxStart.</param>
         /// <param name="signalName">name of the signal</param>
         /// <returns>Error code</returns>
-        public static SimxError SimGetIntegerSignalEnd(int clientId, string signalName)
+        public static CommandReturnCodes SimGetIntegerSignalEnd(int clientId, string signalName)
         {
             int val = 0;
-            var e = simxGetIntegerSignal(clientId, signalName, ref val, SimxOpmode.Discontinue);
+            var e = simxGetIntegerSignal(clientId, signalName, ref val, RegularOperationMode.SimxOpmodeDiscontinue);
             return e;
         }
 
@@ -294,7 +294,7 @@ namespace CoppeliaRobotics
         public static int SimGetIntegerSignal(int clientId, string signalName)
         {
             int val = 0;
-            simxGetIntegerSignal(clientId, signalName, ref val, SimxOpmode.Streaming);
+            simxGetIntegerSignal(clientId, signalName, ref val, RegularOperationMode.SimxOpmodeStreaming);
             return val;
         }
 
@@ -308,13 +308,13 @@ namespace CoppeliaRobotics
         /// <param name="operationMode"> a remote API function operation mode. Recommended operation modes for this function are simx_opmode_streaming (the first call) and simx_opmode_buffer (the following calls)</param>
         /// <returns>a remote API function return code</returns>
         [DllImport("remoteApi.dll", CallingConvention = CallingConvention.Cdecl)]
-        public static extern SimxError simxGetStringSignal(int clientId, string signalName, ref IntPtr signalValue, ref int signalLength, SimxOpmode operationMode);
+        public static extern CommandReturnCodes simxGetStringSignal(int clientId, string signalName, ref IntPtr signalValue, ref int signalLength, RegularOperationMode operationMode);
 
        
 
 
-
-        public enum SimxError
+        // Command return codes
+        public enum CommandReturnCodes
         {
             SimxReturnOk = 0,
             SimxReturnNovalueFlag = 1,
@@ -326,18 +326,246 @@ namespace CoppeliaRobotics
             SimxReturnInitializeErrorFlag = 64,
         }
 
-        public enum SimxOpmode
+        // Regular operation modes
+        public enum RegularOperationMode
         {
-            Oneshot = 0,
-            OneshotWait = 65536,
-            Streaming = 131072,
-            Continuous = 131072,
-            OneshotSplit = 196608,
-            ContinuousSplit = 262144,
-            StreamingSplit = 262144,
-            Discontinue = 327680,
-            Buffer = 393216,
-            Remove = 458752,
+            // Regular operation modes
+            SimxOpmodeOneshot = 0,
+            SimxOpmodeBlocking = 65536,
+            SimxOpmodeOneshotWait = 65536,
+            SimxOpmodeContinuous = 131072,
+            SimxOpmodeStreaming = 131072,
+
+            // Operation modes for heavy data
+            SimxOpmodeOneshotSplit = 196608,
+            SimxOpmodeContinuousSplit = 262144,
+            SimxOpmodeStreamingSplit = 262144,
+
+            // Special operation modes
+            SimxOpmodeDiscontinue = 327680,
+            SimxOpmodeBuffer = 393216,
+            SimxOpmodeRemove = 458752,
         }
+
+        // Scene object types
+        public enum SceneObjectTypes
+        {
+            SimObjectShapeType = 0,
+            SimObjectJointType = 1,
+            SimObjectGraphType = 2,
+            SimObjectCameraType = 3,
+            SimObjectDummyType = 4,
+            SimObjectProximitysensorType = 5,
+            SimObjectReserved1 = 6,
+            SimObjectReserved2 = 7,
+            SimObjectPathType = 8,
+            SimObjectVisionsensorType = 9,
+            SimObjectVolumeType = 10,
+            SimObjectMillType = 11,
+            SimObjectForcesensorType = 12,
+            SimObjectLightType = 13,
+            SimObjectMirrorType = 14,
+        }
+
+        // General object types
+        public enum GeneralObjectTypes
+        {
+            SimAppobjObjectType = 109,
+            SimAppobjCollisionType = 110,
+            SimAppobjDistanceType = 111,
+            SimAppobjSimulationType = 112,
+            SimAppobjIkType = 113,
+            SimAppobjConstraintsolverType = 114,
+            SimAppobjCollectionType = 115,
+            SimAppobjUiType = 116,
+            SimAppobjScriptType = 117,
+            SimAppobjPathplanningType = 118,
+            SimAppobjReservedType = 119,
+            SimAppobjTextureType = 120,
+        }
+
+        // Inverse Kinematics calculation methods
+        public enum IkCalculationMethods
+        {
+            SimIkPseudoInverseMethod = 0,
+            SimIkDampedLeastSquaresMethod = 1,
+            SimIkJacobianTransposeMethod = 2,
+        }
+
+        // Inverse Kinematics constraints
+        public enum IkConstraints
+        {
+            SimIkXConstraint = 1,
+            SimIkYConstraint = 2,
+            SimIkZConstraint = 4,
+            SimIkAlphaBetaConstraint = 8,
+            SimIkGammaConstraint = 16,
+            SimIkAvoidanceConstraint = 64,
+        }
+
+        //  Inverse Kinematics calculation results
+        public enum IkCalculationResults
+        {
+            SimIkresultNotPerformed = 0,
+            SimIkresultSuccess = 1,
+            SimIkresultFail = 2,
+        }
+
+        // Scene object sub-types
+        public enum SceneObjectSubTypes
+        {
+            SimLightOmnidirectionalSubtype = 1,
+            SimLightSpotSubtype = 2,
+            SimLightDirectionalSubtype = 3,
+            SimJointRevoluteSubtype = 10,
+            SimJointPrismaticSubtype = 11,
+            SimJointSphericalSubtype = 12,
+            SimShapeSimpleshapeSubtype = 20,
+            SimShapeMultishapeSubtype = 21,
+            SimProximitysensorPyramidSubtype = 30,
+            SimProximitysensorCylinderSubtype = 31,
+            SimProximitysensorDiscSubtype = 32,
+            SimProximitysensorConeSubtype = 33,
+            SimProximitysensorRaySubtype = 34,
+            SimMillPyramidSubtype = 40,
+            SimMillCylinderSubtype = 41,
+            SimMillDiscSubtype = 42,
+            SimMillConeSubtype = 42,
+            SimObjectNoSubtype = 200,
+        }
+
+         // Scene object main properties
+         public enum SceneObjectMainProperties
+         {
+            SimObjectspecialpropertyCollidable = 1,
+            SimObjectspecialpropertyMeasurable = 2,
+            SimObjectspecialpropertyDetectableUltrasonic = 16,
+            SimObjectspecialpropertyDetectableInfrared = 32,
+            SimObjectspecialpropertyDetectableLaser = 64,
+            SimObjectspecialpropertyDetectableInductive = 128,
+            SimObjectspecialpropertyDetectableCapacitive = 256,
+            SimObjectspecialpropertyRenderable = 512,
+            SimObjectspecialpropertyDetectableAll = 496,
+            SimObjectspecialpropertyCuttable = 1024,
+            SimObjectspecialpropertyPathplanningIgnored = 2048,
+        }
+
+        // Model properties
+        public enum ModelProperties
+        {
+            SimModelpropertyNotCollidable = 1,
+            SimModelpropertyNotMeasurable = 2,
+            SimModelpropertyNotRenderable = 4,
+            SimModelpropertyNotDetectable = 8,
+            SimModelpropertyNotCuttable = 16,
+            SimModelpropertyNotDynamic = 32,
+            SimModelpropertyNotRespondable = 64,
+            SimModelpropertyNotReset = 128,
+            SimModelpropertyNotVisible = 256,
+            SimModelpropertyNotModel = 61440,
+        }
+
+        //Sim Messages
+        public enum SimMessages
+        {
+            SimMessageUiButtonStateChange = 0,
+            SimMessageReserved9 = 1,
+            SimMessageObjectSelectionChanged = 2,
+            SimMessageReserved10 = 3,
+            SimMessageModelLoaded = 4,
+            SimMessageReserved11 = 5,
+            SimMessageKeypress = 6,
+            SimMessageBannerclicked = 7,
+            SimMessageForCApiOnlyStart = 256,
+            SimMessageReserved1 = 257,
+            SimMessageReserved2 = 258,
+            SimMessageReserved3 = 259,
+            SimMessageEventcallbackScenesave = 260,
+            SimMessageEventcallbackModelsave = 261,
+            SimMessageEventcallbackModuleopen = 262,
+            SimMessageEventcallbackModulehandle = 263,
+            SimMessageEventcallbackModuleclose = 264,
+            SimMessageReserved4 = 265,
+            SimMessageReserved5 = 266,
+            SimMessageReserved6 = 267,
+            SimMessageReserved7 = 268,
+            SimMessageEventcallbackInstancepass = 269,
+            SimMessageEventcallbackBroadcast = 270,
+            SimMessageEventcallbackImagefilterEnumreset = 271,
+            SimMessageEventcallbackImagefilterEnumerate = 272,
+            SimMessageEventcallbackImagefilterAdjustparams = 273,
+            SimMessageEventcallbackImagefilterReserved = 274,
+            SimMessageEventcallbackImagefilterProcess = 275,
+            SimMessageEventcallbackReserved1 = 276,
+            SimMessageEventcallbackReserved2 = 277,
+            SimMessageEventcallbackReserved3 = 278,
+            SimMessageEventcallbackReserved4 = 279,
+            SimMessageEventcallbackAbouttoundo = 280,
+            SimMessageEventcallbackUndoperformed = 281,
+            SimMessageEventcallbackAbouttoredo = 282,
+            SimMessageEventcallbackRedoperformed = 283,
+            SimMessageEventcallbackScripticondblclick = 284,
+            SimMessageEventcallbackSimulationabouttostart = 285,
+            SimMessageEventcallbackSimulationended = 286,
+            SimMessageEventcallbackReserved5 = 287,
+            SimMessageEventcallbackKeypress = 288,
+            SimMessageEventcallbackModulehandleinsensingpart = 289,
+            SimMessageEventcallbackRenderingpass = 290,
+            SimMessageEventcallbackBannerclicked = 291,
+            SimMessageEventcallbackMenuitemselected = 292,
+            SimMessageEventcallbackRefreshdialogs = 293,
+            SimMessageEventcallbackSceneloaded = 294,
+            SimMessageEventcallbackModelloaded = 295,
+            SimMessageEventcallbackInstanceswitch = 296,
+            SimMessageEventcallbackGuipass = 297,
+            SimMessageEventcallbackMainscriptabouttobecalled = 298,
+            SimMessageEventcallbackRmlposition = 299,
+            SimMessageEventcallbackRmlvelocity = 300,
+
+            SimMessageSimulationStartResumeRequest = 4096,
+            SimMessageSimulationPauseRequest = 4097,
+            SimMessageSimulationStopRequest = 4098,
+        }
+
+        // Scene object properties
+        public enum SceneObjectProperties
+        {
+            SimObjectpropertyCollapsed = 16,
+            SimObjectpropertySelectable = 32,
+            SimObjectpropertyReserved7 = 64,
+            SimObjectpropertySelectmodelbaseinstead = 128,
+            SimObjectpropertyDontshowasinsidemodel = 256,
+            SimObjectpropertyCanupdatedna = 1024,
+            SimObjectpropertySelectinvisible = 2048,
+            SimObjectpropertyDepthinvisible = 4096,
+        }
+
+         // Remote API message header structure
+         public enum MessageHeaderStructure
+         {
+            SimxHeaderoffsetCrc = 0,
+            SimxHeaderoffsetVersion = 2,
+            SimxHeaderoffsetMessageId = 3,
+            SimxHeaderoffsetClientTime = 7,
+            SimxHeaderoffsetServerTime = 11,
+            SimxHeaderoffsetSceneId = 15,
+            SimxHeaderoffsetServerState = 17,
+        }
+
+        // Remote API command header
+        public enum CommandHeader
+        {
+            SimxCmdheaderoffsetMemSize = 0,
+            SimxCmdheaderoffsetFullMemSize = 4,
+            SimxCmdheaderoffsetPdataOffset0 = 8,
+            SimxCmdheaderoffsetPdataOffset1 = 10,
+            SimxCmdheaderoffsetCmd = 14,
+            SimxCmdheaderoffsetDelayOrSplit = 18,
+            SimxCmdheaderoffsetSimTime = 20,
+            SimxCmdheaderoffsetStatus = 24,
+            SimxCmdheaderoffsetReserved = 25,
+        }
+
+
     }
 }

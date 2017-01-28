@@ -5,7 +5,7 @@ namespace Generate_Method_List
 {
     class Program
     {
-        private static void Main(string[] args)
+        private static void Main()
         {
      
                 ShowMethods(typeof(Vrep));
@@ -15,7 +15,6 @@ namespace Generate_Method_List
     {
                 foreach (var method in type.GetMethods())
                 {
-                    var parameters = method.GetParameters();
                     var parameterDescriptions = string.Join
                         (", ", method.GetParameters()
                                      .Select(x => x.ParameterType + " " + x.Name)

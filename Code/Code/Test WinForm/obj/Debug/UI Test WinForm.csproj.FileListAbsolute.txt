@@ -1,7 +1,0 @@
-E:\GitHub\V-REP-Remote-API-in-C-\V-REP-Remote-API-for-Dot-NET\Code\Code\Test WinForm\bin\Debug\WindowsFormsApplication1.exe.config
-E:\GitHub\V-REP-Remote-API-in-C-\V-REP-Remote-API-for-Dot-NET\Code\Code\Test WinForm\obj\Debug\WindowsFormsApplication1.exe
-E:\GitHub\V-REP-Remote-API-in-C-\V-REP-Remote-API-for-Dot-NET\Code\Code\Test WinForm\obj\Debug\WindowsFormsApplication1.pdb
-E:\GitHub\V-REP-Remote-API-in-C-\V-REP-Remote-API-for-Dot-NET\Code\Code\Test WinForm\obj\Debug\UI Test WinForm.csprojResolveAssemblyReference.cache
-E:\GitHub\V-REP-Remote-API-in-C-\V-REP-Remote-API-for-Dot-NET\Code\Code\Test WinForm\obj\Debug\WindowsFormsApplication1.UI.resources
-E:\GitHub\V-REP-Remote-API-in-C-\V-REP-Remote-API-for-Dot-NET\Code\Code\Test WinForm\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
-E:\GitHub\V-REP-Remote-API-in-C-\V-REP-Remote-API-for-Dot-NET\Code\Code\Test WinForm\obj\Debug\UI Test WinForm.csproj.GenerateResource.Cache
